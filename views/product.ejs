@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/product.css">
+</head>
+
+<body>
+    <%- include('partials/header',{ currentUser : activeUser, definedControl : definedControl, }) %>
+        <div class="productContainer">
+            <div class="productImage">
+                <% product.images_list.forEach((elem,index)=>{ %>
+                    <div class="slides">
+                        <img class='image' src="<%= elem %>" alt="productImage">
+                    </div>
+                    <% }) %>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="dots">
+                <% product.images_list.forEach((elem,index)=>{ %>
+                    <span class="dot" onclick="currentSlide(<%= index+1 %>)"></span>
+                    <% })%>
+            </div>
+            <div class="description">
+                <div class="shortDescription">
+
+                    <div class="productBrand">
+                        <%= product.brand %>
+                    </div>
+                    <div class="productTitle">
+                        <%= product.title %>
+                    </div>
+                    <div class="productPrice">
+                        <%= product.price %>
+                    </div>
+                
+                    <%= product.breadcrumbs %>
+                </div>
+                <hr>
+                <div class="detailedDescription">
+                    <h2>Description</h2>
+                    <div class="basicDescription">
+
+                        <% let arr=product.product_details.split("\n\n") %>
+                        <% arr.forEach((ele,index)=> { %>
+                            <%= ele %>&nbsp;
+                            <% if(index%2) { %>
+                                <br>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                    <div class="otherDescription">
+                        <table class="tableDescription">
+                            <thead>
+                                <th>Features</th>
+                                <th>Description</th>
+                            </thead>
+                            <tbody>
+                                <% product.features.forEach((obj)=>{ %>
+                                <% let name=Object.getOwnPropertyNames(obj)[0] %>
+                                    <tr>
+                                        <td>
+                                            <%= name %>
+                                        </td>
+                                        <td>
+                                            <%= obj[name] %>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="../../scripts/productImage.js"></script>
+
+</html>

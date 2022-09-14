@@ -1,0 +1,97 @@
+.productImage {
+    max-width: 550px;
+    position: relative;
+    margin: auto;
+}
+
+.slides {
+    display: none;
+}
+
+.next, .prev {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    /* color: white; */
+    user-select: none;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,.next:hover{
+    background-color: rgba(240, 240, 240, 0.374);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover{
+    background-color: #717171;
+}
+
+.dots{
+    position: relative;
+    left: 50%;
+}
+
+.image {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+}
+
+.productBrand {
+    color: #717171;
+    text-transform: capitalize;
+    font-weight: lighter;
+}
+
+.productTitle {
+    font-weight: bold;
+}
+
+.productPrice {
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.tableDescription {
+    font-family: inherit;
+    border-collapse: collapse;
+    width: 50%;
+    table-layout: fixed;
+}
+
+.tableDescription td, .tableDescription th {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.tableDescription tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.tableDescriptiontr:hover {
+    background-color: #ddd;
+}
+
+.tableDescription th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgba(80, 97, 222, 0.564);
+    color: white;
+}
