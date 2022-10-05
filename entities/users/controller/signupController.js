@@ -1,7 +1,9 @@
 const Mailjet = require('node-mailjet');
+const dotenv = require('dotenv')
+dotenv.config()
 const mailjet = Mailjet.apiConnect(
-  'aad62c63f050adc810677c06b94a76dd',
-  '5fcd9db254bc5f477a0b5c0f56f5a0aa',
+  process.env.MAILJET_API_PRIVATE_KEY,
+  process.env.MAILJET_API_PUBLIC_KEY,
 );
 const userSignup = require("../services/signupService")
 const bcrypt = require("bcrypt")

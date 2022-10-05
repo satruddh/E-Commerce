@@ -29,7 +29,10 @@ module.exports.postReq= (req,res)=>{
         req.session.isAuthenticated = true
         req.session.username = username
         req.session.UName = user.name
-        res.redirect("/")
+        console.log("Session from post login ",req.session)
+        if(req.session.returnTo===undefined)
+          req.session.returnTo = "/"
+        res.redirect(req.session.returnTo)
         return
       }
       res.render("login",{err : "Wrong password"})
@@ -41,9 +44,9 @@ module.exports.postReq= (req,res)=>{
 }
 
 module.exports.getReq = (req,res)=>{
+  console.log("Req session ",req.session)
   if(req.session.isAuthenticated)
   {
-    console.log("Req session ",req.session)
     res.redirect("/")
   }
   else

@@ -1,0 +1,14 @@
+<div class="products">
+    <% prods.forEach((elem,index)=>{ %>
+        <div class='card'>
+                <div class="productImg">
+                    <img src="<%= elem.images_list[0] %>" alt="productImage">
+                </div>
+                <div class="desc">
+                    <h1 class="prodTitle"><%= elem.title %></h1>
+                    <h6 class="price">$ <%= elem.price %></h6>
+                    <a href='/products/<%= elem._id %>' class='showDetails btn'>View More</a>
+                </div>
+        </div>
+    <% }) %>
+</div>

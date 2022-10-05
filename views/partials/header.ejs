@@ -1,4 +1,4 @@
-<div class="headRow">
+<header class="headRow">
     <div class="head">
         <h4><a class="logoBtn" href="/">Shopo</a></h4>
     </div>
@@ -7,7 +7,7 @@
             <%= currentUser %>
         </span>
         <% if(currentUser !== "") { %> 
-        <form action="/logout" method="GET">
+        <form action="/user/logout" method="GET">
             <input type="submit" class="actionBtn" id=<%= definedControl %> value=<%= definedControl %> >
         </form>
         <% } else { %>
@@ -16,4 +16,4 @@
             </form>
         <% } %>
     </div>
-</div>
+</header>

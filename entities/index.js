@@ -1,6 +1,8 @@
 const userRoute = require("./users/routes")
-const homeRoute = require("./home/routes")
+const productRoute = require("./products/routes")
+const cartRoute = require("./cart/routes")
 module.exports = (app)=>{
   app.use("/user",userRoute)
-  app.use("/",homeRoute)
+  app.use("/",productRoute)
+  app.use("/addToCart",cartRoute)
 }

@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  background: black;
+  padding: 1.5em 4em;
+}
+
+.copyright{
+  margin-bottom: 0;
+}
+
+.text-white{
+  color:white;
+}

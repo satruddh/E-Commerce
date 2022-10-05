@@ -7,6 +7,7 @@
     <title>Shopo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
     <%- include('partials/header',{
@@ -14,43 +15,13 @@
         definedControl : definedControl,
     }) %>
     <div class="myContainer">
-        <div class="products">
-            
-        </div>
+        <%- include('partials/allProducts',{
+            prods : prods
+        }) %>
         <div class="loadMore">
             <a href="/products"><button>Load More...</button></a>
         </div>
     </div>
+    <%- include('partials/footer') %>
 </body>
-<script>
-    const xhr = new XMLHttpRequest()
-    xhr.open("GET","/products/all")
-    xhr.send()
-    xhr.onload = ()=>{
-        console.log("Hello");
-        console.log(xhr.responseText)
-        console.dir(JSON.parse(xhr.responseText))
-        addToDOM(JSON.parse(xhr.responseText))
-    }
-
-    function addToDOM(array)
-    {
-        let allprod = document.querySelector('.products')
-        array.forEach(element => {
-            let e = `<div class='card'><div class="productImg">
-                <img src="${element.images_list[0]}" alt="productImage">
-            </div>
-            <div class="desc">
-                <h1 class="prodTitle">${element.title}</h1>
-                <h6 class="price">${element.price}</h6>
-                <a href='/products/${element._id}' class='showDetails btn'>View More</a>
-            </div></div>`
-
-            let a = document.createElement('a')
-            a.setAttribute('href','#')
-            a.innerHTML = e
-            allprod.append(a)
-        });
-    }
-</script>
 </html>

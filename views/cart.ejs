@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <%- include('partials/header',{ currentUser : activeUser, definedControl : definedControl, }) %>
+    <div class="container flex">
+        <div class="userHead flex">
+            <div class="greetingText">
+                Hello <span class="username"><%= activeUser %></span>
+            </div>
+            <div class="action">
+                <a href="#" class="checkoutBtn">
+                    <button class="btn">Checkout All</button>
+                </a>
+            </div>
+        </div>
+        <div class="cartContent flex">
+            <% cartItems.forEach(elem =>{ %>
+                <div class="listDiv flex">
+                    <div class="listContent flex">
+                        <div class="img">
+                            <img src="<%= elem.images_list[0] %>" class="productLogo" />
+                        </div>
+                        <div class="details">
+                            <h3><%= elem.title %></h3>
+                            <h4><%= elem.brand %></h4>
+                            <h6><%= elem.price %></h6>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="removeBtn">
+                            <button class="btn">Remove</button>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
