@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="addToCartContainer">
-                        <form action="/addToCart" method="post" class="cartForm">
+                        <form action="/cart/add" method="post" class="cartForm">
                             <div class="input-group">
                                 <label for="quantity">Quantity : </label>
                                 <div class="input-controls">
@@ -94,6 +94,9 @@
                                 <input type="hidden" name="product" value="<%= product._id %>">
                                 <input type="submit" value="Add To Cart" class="input-control button">
                                 <input type="hidden" name="basePrice" value="<%= product.price %>" >
+                                <input type="hidden" name="productImage" value="<%= product.images_list[0] %>" >
+                                <input type="hidden" name="productTitle" value="<%= product.title %>" >
+                                <input type="hidden" name="productBrand" value="<%= product.brand %>" >
                             </div>
                         </form>
                     </div>

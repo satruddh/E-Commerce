@@ -18,12 +18,15 @@
     margin-left: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: x-large;
+    flex: 4;
 }
 
 .userControls {
-    margin-right : 10px;
-    width: 170px;
-    height: 40px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
 }
 
 .userName {
@@ -33,11 +36,9 @@
     overflow: hidden;
     white-space: nowrap;
     line-height: 40px;
-    text-align: right;
 }
 
 .actionBtn {
-    float: right;
     width: 70px;
     height: 40px;
     border-radius: 20px;
@@ -48,10 +49,6 @@
     background-color: rgba(80, 97, 222, 0.564);
 }
 
-form{
-    display: inline;
-}
-
 .actionBtn:hover, button:focus-visible{
     outline: none;
     border: 3px solid #0269c2bf;
@@ -60,4 +57,37 @@ form{
 a.logoBtn {
     text-decoration: none;
     color: initial;
+}
+
+.optionsMenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    width: 20%;
+}
+.optionsList{
+    list-style: none;
+}
+.optionsList > li {
+    border: 1px solid;
+    background: whitesmoke;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.optionsList > li:hover {
+    background-color: rgb(80, 97, 222);
+    color: white;
+}
+.userName:hover .optionsMenu{
+    display: block;
+}
+
+li a{
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    color: inherit;
 }

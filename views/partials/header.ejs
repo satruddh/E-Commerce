@@ -3,17 +3,21 @@
         <h4><a class="logoBtn" href="/">Shopo</a></h4>
     </div>
     <div class="userControls">
-        <span class="userName">
-            <%= currentUser %>
-        </span>
         <% if(currentUser !== "") { %> 
-        <form action="/user/logout" method="GET">
-            <input type="submit" class="actionBtn" id=<%= definedControl %> value=<%= definedControl %> >
-        </form>
+            <span class="userName">
+                <%= currentUser %>
+                <div class="optionsMenu">
+                    <ul class="optionsList">
+                        <li><a href="#">My Orders</a></li>
+                        <li><a href="/cart/view">My Cart</a></li>
+                        <li><a href="/user/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </span>
         <% } else { %>
-            <form action="/user/login" method="GET">
-                <input type="submit" class="actionBtn" id=<%= definedControl %> value=<%= definedControl %> >
-            </form>
+            <span>
+            <a href="/user/login"><button class="actionBtn"><%= definedControl %></button></a>
+            </span>
         <% } %>
     </div>
 </header>

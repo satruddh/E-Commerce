@@ -4,7 +4,7 @@ const listProductsService = require("../services/listProductsService")
 module.exports  = async (req,res)=>{
     try {
         const allProd = await listProductsService({})
-        console.log(allProd)
+        // console.log(allProd)
         if(req.session.isAuthenticated)
         {
             res.render("home",{

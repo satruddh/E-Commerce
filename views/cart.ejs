@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link rel="stylesheet" href="../../css/cart.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
 </head>
 <body>
     <%- include('partials/header',{ currentUser : activeUser, definedControl : definedControl, }) %>
@@ -12,6 +15,12 @@
         <div class="userHead flex">
             <div class="greetingText">
                 Hello <span class="username"><%= activeUser %></span>
+            </div>
+            <div>
+                <div class="purchaseInfo">
+                    <h4> Total Items : <span> <%= cartItems.length %> </span></h4>
+                    <h4>Total Amount : <span>$ <%= cartTotal %> </span></h4>
+                </div>
             </div>
             <div class="action">
                 <a href="#" class="checkoutBtn">
@@ -24,15 +33,24 @@
                 <div class="listDiv flex">
                     <div class="listContent flex">
                         <div class="img">
-                            <img src="<%= elem.images_list[0] %>" class="productLogo" />
+                            <img src="<%= elem.product_img %>" class="productLogo" />
                         </div>
                         <div class="details">
-                            <h3><%= elem.title %></h3>
-                            <h4><%= elem.brand %></h4>
-                            <h6><%= elem.price %></h6>
+                            <div class="productInfo">
+                                <h3><%= elem.product_title %></h3>
+                                <h4><%= elem.product_brand %></h4>
+                                <h6>$ <%= elem.base_price %></h6>
+                            </div>
+                            <div class="purchaseInfo">
+                               <h4>Quantity : <span> <%=elem.quantity %> </span></h4>
+                               <h4>Sub-Total : $ <%= elem.base_price*elem.quantity %></h4>
+                            </div>
                         </div>
                     </div>
                     <div class="action">
+                        <a href="#" class="checkoutBtn">
+                            <button class="btn">Checkout</button>
+                        </a>
                         <a href="#" class="removeBtn">
                             <button class="btn">Remove</button>
                         </a>
@@ -41,5 +59,6 @@
             <% }) %>
         </div>
     </div>
+    <%- include('partials/footer') %>
 </body>
 </html>

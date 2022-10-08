@@ -4,5 +4,5 @@ const cartRoute = require("./cart/routes")
 module.exports = (app)=>{
   app.use("/user",userRoute)
   app.use("/",productRoute)
-  app.use("/addToCart",cartRoute)
+  app.use("/cart",cartRoute)
 }
