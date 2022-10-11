@@ -1,6 +1,4 @@
-const cartModel = require("../../../database/models/cart")
 const getCartItems = require("../services/getCartItems")
-const productModel = require("../../../database/models/products")
 
 module.exports =async (req,res)=>{
     if(!req.session.username)
@@ -13,8 +11,9 @@ module.exports =async (req,res)=>{
     let cartItems = await getCartItems(req.session.username)
     let total=0
     cartItems.forEach(elem =>{
-        total+=Number(elem.base_price)*Number(elem.quantity)
+            total+=Number(elem.base_price)*Number(elem.quantity)
     })
+    console.log("aaxas",cartItems.length)
     res.render("cart",{
         activeUser : req.session.UName,
         definedControl : "Logout",

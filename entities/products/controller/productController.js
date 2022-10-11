@@ -2,6 +2,7 @@ const listProductsService = require("../services/listProductsService")
 
 
 module.exports  = async (req,res)=>{
+    req.session.success=false
     try {
         const allProd = await listProductsService({})
         // console.log(allProd)

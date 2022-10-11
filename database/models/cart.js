@@ -16,6 +16,8 @@ const cartSchema = new mongoose.Schema({
     quantity : {
         type : Number,
         required : true,
+        default:1,
+        min:[1,"Can't be less than 1"],
     },
     product_img : {
         type : String,
@@ -28,7 +30,12 @@ const cartSchema = new mongoose.Schema({
     product_brand : {
         type : String,
         required : true,
-    }
+    },
+    ordered : {
+        type : Boolean,
+        default : false,
+    },
+    orderDate : Date
 })
 
 const cartModel = mongoose.model('cartDetail',cartSchema)

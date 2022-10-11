@@ -81,6 +81,11 @@ a.logoBtn {
     background-color: rgb(80, 97, 222);
     color: white;
 }
+
+.userName:hover{
+    cursor: pointer;
+}
+
 .userName:hover .optionsMenu{
     display: block;
 }

@@ -4,8 +4,9 @@
     box-sizing: border-box;
 }
 
-body{
+html,body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
 }
 
 .flex {
@@ -31,6 +32,21 @@ body{
     padding: 10px;
     justify-content: space-between;
     background: rgba(240, 239, 238 , 0.7);
+    min-height: 400px;
+}
+
+.cartEmptyText{
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    gap: 20px;
+}
+
+.cartEmptyText a {
+    text-decoration: none;
 }
 
 img{
@@ -49,7 +65,6 @@ img{
 }
 
 .listContent{
-    width: 90%;
     gap : 10px;
 }
 
@@ -67,6 +82,7 @@ img{
 
 .productInfo{
     align-items: flex-start;
+    flex: 2;
 }
 
 .purchaseInfo{
@@ -142,4 +158,20 @@ img{
 
 .username {
     font-size: xxx-large;
+}
+
+.orders{
+    width: 80%;
+}
+.cartItems{
+    width: 90%;
+}
+
+.fit-content{
+    width: fit-content;
+    padding: 0 10px;
+}
+
+.orderDate{
+    font-style: italic;
 }

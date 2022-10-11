@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="../../css/cartAndOrder.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
@@ -16,32 +16,19 @@
             <div class="greetingText">
                 Hello <span class="username"><%= activeUser %></span>
             </div>
-            <% if(cartItems.length) { %>
-            <div>
-                <div class="purchaseInfo">
-                    <h4> Total Items : <span> <%= cartItems.length %> </span></h4>
-                    <h4>Total Amount : <span>$ <%= cartTotal %> </span></h4>
-                </div>
-            </div>
-            <div class="action">
-                <form action="/orders/all" method="post" class="checkoutBtn">
-                    <button class="btn">Checkout All</button>
-                    <% let data = JSON.stringify(cartItems) %>
-                    <input type="hidden" name="cartData" value="<%= data %>">
-                </form>
-            </div>
-        <% } %>
+
+
         </div>
         <div class="cartContent flex">
             <% if(!cartItems.length) { %>
                 <span class="cartEmptyText">
-                    Your Cart looks empty...
+                    Seems like you haven't purchased something yet...
                     <a href="/">Shop Now...</a>
                 </span>
             <% } %>
             <% cartItems.forEach(elem =>{ %>
                 <div class="listDiv flex">
-                    <div class="listContent flex cartItems">
+                    <div class="listContent flex orders">
                         <div class="img">
                             <img src="<%= elem.product_img %>" class="productLogo" />
                         </div>
@@ -57,13 +44,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="action">
-                        <a href="/orders/item/<%= elem._id %>" class="checkoutBtn">
-                            <button class="btn">Checkout</button>
-                        </a>
-                        <a href="/cart/remove/<%= elem._id %>" class="removeBtn">
-                            <button class="btn">Remove</button>
-                        </a>
+                    <div class="action fit-content">
+                        <div class="orderDate">
+                            <% let date = new Date(elem.orderDate).toLocaleString() %>
+                            <h5>Order Date : </h5>
+                            <span class="orderDate"><%= date %></span>
+                        </div>
                     </div>
                 </div>
             <% }) %>
