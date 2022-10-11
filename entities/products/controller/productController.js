@@ -3,25 +3,32 @@ const listProductsService = require("../services/listProductsService")
 
 module.exports  = async (req,res)=>{
     req.session.success=false
+    let page = req.query.page
+    if(!page)
+        page = 1
+    let limit = 5 * page
+
+    console.log("limit",limit)
     try {
-        const allProd = await listProductsService({})
+        const allProd = await listProductsService(limit)
+        page=Number(page)+1
         // console.log(allProd)
         if(req.session.isAuthenticated)
         {
             res.render("home",{
-                _id : allProd._id,
                 activeUser : req.session.UName,
                 definedControl : "Logout",
-                prods : allProd
+                prods : allProd,
+                page: page 
             })
         }
         else
         {
             res.render("home",{
-                _id : allProd._id,
                 activeUser : "",
                 definedControl : "Login",
-                prods : allProd
+                prods : allProd,
+                page:page
             })
         }
         

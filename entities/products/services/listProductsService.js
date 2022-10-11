@@ -1,6 +1,6 @@
 const productModel = require("../../../database/models/products")
 
-module.exports = ()=>{
-    console.log("Get All Data..")
-    return productModel.find({}).limit(5)
+module.exports = (limit)=>{
+    console.log("Get All Data..",limit)
+    return productModel.find({}).limit(limit)
 }

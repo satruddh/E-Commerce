@@ -11,10 +11,12 @@ html,body{
 
 .myContainer {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    height: 100%;
+    min-height: 80%;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .products {
@@ -102,4 +104,8 @@ a:hover{
 .showDetails
 {
     align-self: center;
+}
+
+.loadMore{
+    margin: 20px;
 }

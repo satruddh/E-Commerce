@@ -8,5 +8,5 @@ module.exports = async (req,res)=>{
         // await removeItem(objects[i]._id)
     }
     req.session.success = true
-    res.redirect("/orders/success")
+    res.redirect("/")
 }
